@@ -62,7 +62,7 @@ local function alertPolice()
     end
 
     if math.random() <= chance then
-        TriggerServerEvent('police:server:policeAlert')
+        TriggerServerEvent('qbx_storerobbery:server:alertPolice')
     end
 end
 

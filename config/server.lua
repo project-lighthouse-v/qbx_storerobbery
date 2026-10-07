@@ -1,4 +1,7 @@
 return {
+    useExternalDispatch = true,
+    dispatch = 'ps-dispatch',
+
     callCopsTimeout = 240000,
 
     registerReward = {

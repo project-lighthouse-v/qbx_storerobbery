@@ -90,6 +90,18 @@ RegisterNetEvent('qbx_storerobbery:server:checkStatus', function()
     TriggerClientEvent('qbx_storerobbery:client:initRegisterAttempt', src, isAdvanced)
 end)
 
+RegisterNetEvent('qbx_storerobbery:server:alertPolice', function()
+    local src = source
+    local session = startedRegister[src]
+    if not session or session.alertSent then return end
+
+    local coords = GetEntityCoords(GetPlayerPed(src))
+    if getClosestRegister(coords) ~= session.index then return end
+
+    session.alertSent = true
+    TriggerEvent('qbx_storerobbery:server:dispatchAlert', src, sharedConfig.registers[session.index].camId)
+end)
+
 RegisterNetEvent('qbx_storerobbery:server:registerFailed', function()
     local src = source
     local session = startedRegister[src]

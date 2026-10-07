@@ -12,8 +12,15 @@ shared_scripts {
     '@qbx_core/modules/lib.lua',
 }
 
-client_script 'client/main.lua'
-server_script 'server/main.lua'
+client_scripts {
+    'client/alerts.lua',
+    'client/main.lua',
+}
+server_scripts {
+    'server/default_alert.lua',
+    'server/alerts.lua',
+    'server/main.lua',
+}
 
 ui_page 'html/index.html'
 
